@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/style.css" rel="stylesheet">
+    <!-- PyScript CSS -->
+    <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC2/core.js"></script>
+
+    <!-- # python file -->
+    <py-script src="./main.py">
+    
+    
+    </py-script>  
+
+    <title>GnuChanOS</title>
+
+</head>
+<body id="body">
+    <div class="topbar">
+        <div class="barGroup">
+            <span class="divider">:</span>
+            <div class="groupContent">
+                <a href="">not finish</a>
+            </div>
+        </div>
+        <div class="barGroup middleGroup">
+            (-No Gnu/Linux No Life-)
+        </div>
+        <div class="barGroup">
+            <div class="groupContent">
+              <p>|</p> 
+              
+              <p id="sep">_</p> 
+              <p id="time"></p> 
+
+              <p id="sep">_</p> 
+              <p id="middleSEP">|</p>
+              <p id="sep">_</p>
+
+              <a id="cal"></a>
+              <p id="sep">_</p> 
+              
+              <p>|</p>
+            </div>
+            <span class="divider">:</span>
+        </div>
+    </div>
+
+
+    <div id="app">
+
+        <!-- terminal -->
+        <div id="terminal">
+            <div id="output"></div>
+            <input type="text" id="input" placeholder="Enter You're Command: " />
+        </div>
+
+
+
+        <!-- Scripts -->
+        <!-- this button event-->
+        <button py-click="moreInputAndOutput", id="commandButton">Translate</button>
+        
+        
+        </div>
+
+
+        
+
+        <!-- this is java scrip keyboard event-->
+        <script>
+            document.getElementById("input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    document.getElementById("commandButton").click();
+                }
+            });
+        </script>
+    </div>
+
+    <div class="bottombar">
+        <div class="barGroup">
+            <span class="divider">:</span>
+        </div>
+        <div class="barGroup middleGroup">
+            <a href="https://gnuchanos.itch.io/" target="_blank">| GameDev |</a>
+            <p>--|--</p>
+            <a href="https://www.youtube.com/channel/UCY3iRqZb63Edxh2ibKxy42A" target="_blank">| Youtube |</a> 
+        </div>
+        <div class="barGroup">
+            <span class="divider">:</span>
+        </div>
+    </div>
+</body>
+</html>
