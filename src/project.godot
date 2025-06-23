@@ -19,6 +19,7 @@ config/icon="res://data/Images/logo.png"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
