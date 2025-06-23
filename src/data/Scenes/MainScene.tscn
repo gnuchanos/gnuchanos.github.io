@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://gjkrrs4skf1w"]
+
+[ext_resource type="Texture2D" uid="uid://bkvge55b2cruq" path="res://data/Images/screenW.png" id="1_muh1i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xj4r"]
+texture = ExtResource("1_muh1i")
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1xj4r")
