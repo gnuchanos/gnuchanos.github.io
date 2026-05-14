@@ -1,0 +1,171 @@
+Bir Linux masaüstü ortamı / window manager benzeri sistem geliştir.
+
+Hedef tasarım:
+
+Görsel olarak LXDM + Qtile + minimalist tiling WM karışımı
+Hafif
+Klavye odaklı
+Düşük RAM kullanımı
+Modüler yapı
+Hacker / power-user hissi
+Eski X11 WM sadeliği + modern JS mimarisi
+
+Teknoloji:
+
+Backend: Node.js
+Frontend: Electron yerine mümkünse Tauri benzeri hafif çözüm düşün
+UI rendering:
+HTML/CSS/JS
+Canvas veya WebGL opsiyonel
+State management:
+Event-driven architecture
+IPC sistemi oluştur
+Plugin sistemi tasarla
+Hot reload destekle
+Config dosyaları:
+JSON
+YAML
+veya JS config
+
+Sistem mimarisi:
+
+core/
+wm/
+panel/
+launcher/
+compositor/
+widgets/
+services/
+ipc/
+config/
+plugins/
+
+Özellikler:
+
+Tiling window manager mantığı
+master-stack layout
+monocle
+floating mode
+dynamic gaps
+workspace sistemi
+multi-monitor support
+Üst panel
+workspace indicator
+clock
+cpu/ram widget
+tray
+notification area
+Launcher
+rofi/dmenu benzeri
+fuzzy search
+keyboard only usage
+Theme engine
+CSS tabanlı
+pywal benzeri renk sistemi
+live theme reload
+Configurable keybindings
+vim benzeri
+mod+h/j/k/l navigation
+runtime reload
+Linux integration
+DBus
+PulseAudio/PipeWire
+system notifications
+battery/network integration
+Compositor özellikleri
+blur
+transparency
+rounded corners
+animations
+vsync
+Widget sistemi
+React-like component architecture
+dynamic rendering
+custom widgets API
+
+Kod standartları:
+
+TypeScript kullan
+SOLID principles
+plugin-first architecture
+dependency injection
+event bus sistemi
+minimal external dependency
+performans öncelikli
+
+UI estetiği:
+
+siyah/gri tonlar
+ince fontlar
+minimal spacing
+terminal hacker aesthetic
+Catppuccin / Gruvbox benzeri tema desteği
+
+Ayrıca:
+
+Proje için tam klasör yapısı oluştur
+MVP roadmap hazırla
+İlk çalışan prototipi üret
+Window management abstraction layer tasarla
+Wayland ve X11 desteği için future-proof architecture kur
+Sistem servislerini abstract et
+Render pipeline şeması çıkar
+IPC mesaj formatlarını tanımla
+
+İstenen çıktı:
+
+Architecture overview
+Folder structure
+Core engine design
+Rendering strategy
+IPC design
+Plugin API
+Config system
+MVP implementation plan
+Example TypeScript code
+İlk çalışan demo
+
+Kod üretirken:
+
+production-grade yaklaşım kullan
+pseudo-code yazma
+gerçek çalışan kod yaz
+performans analizini açıkla
+memory optimization belirt
+Linux desktop internals dikkate al
+Qtile/i3/awesomewm mimarilerini referans al
+Electron şişkinliğinden kaçın
+
+Ek hedef:
+Bu proje uzun vadede:
+
+Hyprland benzeri compositor
+eww benzeri widget engine
+rofi benzeri launcher
+polybar benzeri panel
+qtile benzeri scripting
+özelliklerini tek sistemde birleştirebilecek altyapıya sahip olsun.
+
+Biraz daha agresif “gerçek WM geliştirme” seviyesine çekmek istersen şu eklemeyi de yap:
+
+“Browser app değil, gerçek Linux desktop session mantığında düşün. Gerektiğinde Rust/C++ native katman öner. JS sadece orchestration/UI tarafında kullanılsın.”
+
+Bu önemli çünkü sadece JS ile gerçek compositor/window manager yapmak ciddi limitlere çarpıyor. Özellikle:
+
+Wayland compositor
+GPU rendering
+input handling
+low latency rendering
+DRM/KMS
+wlroots benzeri işler
+
+bunlarda native katman gerekiyor.
+
+Mimari olarak en mantıklı yaklaşım:
+
+Rust → compositor/core/input
+TypeScript → UI/config/widgets
+IPC → Unix sockets
+Renderer → wgpu/skia
+
+Bu hibrit model uzun vadede çok daha sürdürülebilir olur.

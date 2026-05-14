@@ -1,0 +1,25 @@
+{
+  "name": "gnuchanos-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Modular Linux desktop shell: tiling WM, panel, launcher (TS orchestration + future native compositor)",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/gen-gnuchanos.mjs",
+    "start": "node dist/web/serve.js",
+    "build:start": "npm run build && npm start",
+    "dev:web": "tsx src/web/serve.js",
+    "sim": "node dist/demo/run-sim.js",
+    "sim:ts": "tsx src/demo/run-sim.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "gnuchanos:state": "node scripts/gen-gnuchanos.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="GNUCHANOS — hafif, klavye odaklı Linux masaüstü kabuğu (tiling WM, panel, launcher). GitHub Pages sitesi." />
+    <meta name="theme-color" content="#1a0b28" />
+    <title>GNUCHANOS</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="wallpaper" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="bar bar--top">
+      <div class="bar__cluster">
+        <span class="bar-avatar" aria-hidden="true" title=""></span>
+        <span class="ws-dots" id="ws-dots" data-i18n-title="ws_dots_title" title="workspace"><span class="on"></span><span></span><span></span><span></span></span>
+        <span class="ws-title" id="ws-title">WorkStation 1</span>
+      </div>
+      <div class="bar__center" id="bar-center">| Gnu-Linux My Life |</div>
+      <div class="bar__cluster bar__cluster--end">
+        <div class="bar-audio-lang mono">
+          <button
+            type="button"
+            class="vol vol--btn"
+            id="vol-btn"
+            data-i18n-title="vol_title"
+            title="Ses (PulseAudio)"
+          >
+            🔊
+          </button>
+          <label class="sr-only" for="lang-select" data-i18n="lang_label">Dil</label>
+          <select id="lang-select" class="lang-select" dir="ltr" aria-label="" data-i18n-aria="lang_label"></select>
+        </div>
+        <span class="glyph" aria-hidden="true">◆</span>
+        <time id="clock" class="mono" datetime=""></time>
+        <span class="glyph glyph--soft" aria-hidden="true">◇</span>
+        <span class="bar-avatar bar-avatar--end" aria-hidden="true"></span>
+      </div>
+    </header>
+
+    <main class="stage">
+      <aside id="shortcuts-panel" class="shortcuts glass" data-i18n-aria="shortcuts_aria" aria-label="Kısayollar (masaüstü referansı)">
+        <p class="shortcuts__hint mono" data-i18n="shortcuts_hint">CLOSE OR OPEN PRESS `</p>
+        <ul class="shortcuts__list mono" id="shortcuts-list">
+          <li data-app="pulse"><button type="button" class="shortcut-btn">PulseAudio</button> <kbd>ALT</kbd>+<kbd>P</kbd></li>
+          <li data-app="music"><button type="button" class="shortcut-btn">Music Player</button> <kbd>ALT</kbd>+<kbd>M</kbd></li>
+          <li data-app="library"><button type="button" class="shortcut-btn">Game Library</button> <kbd>ALT</kbd>+<kbd>G</kbd></li>
+          <li data-app="wall"><button type="button" class="shortcut-btn">Wallpaper Manager</button> <kbd>ALT</kbd>+<kbd>W</kbd></li>
+          <li data-app="editor"><button type="button" class="shortcut-btn">Text Editor</button> <kbd>ALT</kbd>+<kbd>T</kbd></li>
+          <li data-app="calc"><button type="button" class="shortcut-btn">Calculator</button> <kbd>ALT</kbd>+<kbd>C</kbd></li>
+          <li data-app="alarm"><button type="button" class="shortcut-btn">Alarm</button> <kbd>ALT</kbd>+<kbd>A</kbd></li>
+          <li data-app="timer"><button type="button" class="shortcut-btn">TIMER</button> <kbd>ALT</kbd>+<kbd>SHIFT</kbd>+<kbd>T</kbd></li>
+        </ul>
+      </aside>
+
+      <div
+        id="gnuchanos-desktop"
+        class="gnuchanos-desktop"
+        data-i18n-aria="desktop_aria"
+        aria-label="GNUCHANOS pencere alanı — başlıktan sürükleyin, sağ-alt köşeden boyutlandırın"
+      ></div>
+    </main>
+
+    <div
+      id="launcher"
+      class="launcher glass is-hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="launcher-title"
+      aria-hidden="true"
+    >
+      <p id="launcher-title" class="gnuchanos-launcher__title mono" style="margin-bottom: 0.45rem" data-i18n="ln_title">Launcher</p>
+      <input
+        id="launcher-input"
+        class="launcher__input mono"
+        type="search"
+        data-i18n="ln_placeholder"
+        placeholder="Filtrele…"
+        data-i18n-aria="ln_aria"
+        aria-label="Launcher"
+        autocomplete="off"
+      />
+      <ul id="launcher-list" class="launcher__list mono"></ul>
+    </div>
+
+    <footer class="bar bar--bottom mono" data-i18n-aria="footer_aria" aria-label="Durum çubuğu (dekoratif)">
+      <div class="bar-bottom__fill bar-bottom__fill--start" aria-hidden="true">
+        <span class="bar-bottom__square"></span>
+      </div>
+      <div class="bar-bottom__stats">
+        <span><span data-i18n="ft_temp">Temp:</span> <span id="stat-temp">20</span>/100 °C</span>
+        <span class="sep">│</span>
+        <span><span data-i18n="ft_cpu">CPU:</span> <span id="stat-cpu">1.0</span>/3.9Ghz</span>
+        <span class="sep">│</span>
+        <span><span data-i18n="ft_ram">RAM:</span> <span id="stat-ram">115.0</span>/<span id="stat-ram-total">6192</span>MB</span>
+        <span class="sep">│</span>
+        <span><span data-i18n="ft_net">NetSpeed:</span> <span id="stat-up">2.0</span>/<span id="stat-down">6.0</span></span>
+      </div>
+      <div class="bar-bottom__fill bar-bottom__fill--end" aria-hidden="true">
+        <span class="bar-bottom__square"></span>
+      </div>
+    </footer>
+
+    <div id="shell-backdrop" class="shell-backdrop is-hidden" aria-hidden="true"></div>
+
+    <div id="modal-pulse" class="shell-modal glass is-hidden" role="dialog" aria-labelledby="modal-pulse-title" aria-hidden="true">
+      <header class="shell-modal__head">
+        <h2 class="shell-modal__title mono" id="modal-pulse-title" data-i18n="mp_title">PulseAudio</h2>
+        <button type="button" class="shell-modal__close" data-close-modal data-i18n-aria="modal_close" aria-label="Kapat">×</button>
+      </header>
+      <p class="shell-muted mono" data-i18n="mp_note">Tarayıcı oturumu: bip ve alarm sesleri. YouTube sesi iframe içinde ayrı.</p>
+      <label class="shell-field mono"><span data-i18n="mp_vol">Ana ses</span> <span id="pulse-pct">100</span>%</label>
+      <input type="range" id="pulse-slider" min="0" max="100" value="100" />
+      <div class="shell-row">
+        <button type="button" class="shell-btn mono" id="pulse-mute" data-i18n="mp_mute">Sessiz</button>
+      </div>
+    </div>
+
+    <div id="modal-music" class="shell-modal glass is-hidden" role="dialog" aria-labelledby="modal-music-title" aria-hidden="true">
+      <header class="shell-modal__head">
+        <h2 class="shell-modal__title mono" id="modal-music-title" data-i18n="mm_title">Music Player</h2>
+        <button type="button" class="shell-modal__close" data-close-modal data-i18n-aria="modal_close" aria-label="Kapat">×</button>
+      </header>
+      <div class="gchu-music-mount"></div>
+    </div>
+
+    <div id="modal-wall" class="shell-modal glass is-hidden" role="dialog" aria-labelledby="modal-wall-title" aria-hidden="true">
+      <header class="shell-modal__head">
+        <h2 class="shell-modal__title mono" id="modal-wall-title" data-i18n="mw_title">Wallpaper Manager</h2>
+        <button type="button" class="shell-modal__close" data-close-modal data-i18n-aria="modal_close" aria-label="Kapat">×</button>
+      </header>
+      <p class="shell-muted mono" data-i18n="mw_note">Ön ayar veya kendi görselin / URL.</p>
+      <div class="shell-row shell-row--wrap">
+        <button type="button" class="shell-btn mono" data-wall-preset="default" data-i18n="mw_def">Varsayılan</button>
+        <button type="button" class="shell-btn shell-btn--ghost mono" data-wall-preset="svg" data-i18n="mw_svg">Orman SVG</button>
+        <button type="button" class="shell-btn shell-btn--ghost mono" data-wall-preset="gradient" data-i18n="mw_grad">Sadece gradient</button>
+      </div>
+      <label class="shell-field mono" data-i18n="mw_file_l">Görsel dosyası</label>
+      <div class="shell-file-wrap">
+        <div class="shell-file-trigger">
+          <input type="file" id="wall-file" class="shell-file-input" accept="image/*" />
+          <span class="shell-btn shell-btn--ghost mono shell-file-fake" data-i18n="mw_file_btn">Dosya seç…</span>
+        </div>
+        <span id="wall-file-status" class="shell-file-status mono" aria-live="polite">Henüz dosya seçilmedi</span>
+      </div>
+      <label class="shell-field mono" data-i18n="mw_url_l">Görsel URL</label>
+      <input type="url" id="wall-url" class="shell-input mono" data-i18n="mw_url_ph" placeholder="https://…" />
+      <p id="wall-url-hint" class="shell-muted mono" aria-live="polite" hidden></p>
+      <div class="shell-row">
+        <button type="button" class="shell-btn mono" id="wall-apply-url" data-i18n="mw_apply">URL uygula</button>
+        <button type="button" class="shell-btn shell-btn--ghost mono" id="wall-clear-custom" data-i18n="mw_clear">Özel temizle</button>
+      </div>
+    </div>
+
+    <div id="modal-editor" class="shell-modal glass is-hidden" role="dialog" aria-labelledby="modal-editor-title" aria-hidden="true">
+      <header class="shell-modal__head">
+        <h2 class="shell-modal__title mono" id="modal-editor-title" data-i18n="me_title">Text Editor</h2>
+        <button type="button" class="shell-modal__close" data-close-modal data-i18n-aria="modal_close" aria-label="Kapat">×</button>
+      </header>
+      <textarea
+        id="editor-body"
+        class="shell-textarea shell-textarea--tall mono"
+        rows="14"
+        data-i18n="me_ph"
+        placeholder="Notlar…"
+      ></textarea>
+      <div class="shell-row">
+        <button type="button" class="shell-btn mono" id="editor-save" data-i18n="me_save">Kaydet</button>
+        <span id="editor-status" class="shell-muted mono"></span>
+      </div>
+    </div>
+
+    <div id="modal-calc" class="shell-modal glass is-hidden" role="dialog" aria-labelledby="modal-calc-title" aria-hidden="true">
+      <header class="shell-modal__head">
+        <h2 class="shell-modal__title mono" id="modal-calc-title" data-i18n="mc_title">Calculator</h2>
+        <button type="button" class="shell-modal__close" data-close-modal data-i18n-aria="modal_close" aria-label="Kapat">×</button>
+      </header>
+      <input type="text" id="calc-display" class="shell-input shell-input--calc mono" readonly value="" />
+      <div class="calc-grid mono" id="calc-grid"></div>
+    </div>
+
+    <div id="modal-alarm" class="shell-modal glass is-hidden" role="dialog" aria-labelledby="modal-alarm-title" aria-hidden="true">
+      <header class="shell-modal__head">
+        <h2 class="shell-modal__title mono" id="modal-alarm-title" data-i18n="ma_title">Alarm</h2>
+        <button type="button" class="shell-modal__close" data-close-modal data-i18n-aria="modal_close" aria-label="Kapat">×</button>
+      </header>
+      <div class="gchu-alarm-mount"></div>
+    </div>
+
+    <div id="modal-timer" class="shell-modal glass is-hidden" role="dialog" aria-labelledby="modal-timer-title" aria-hidden="true">
+      <header class="shell-modal__head">
+        <h2 class="shell-modal__title mono" id="modal-timer-title" data-i18n="mt_title">TIMER</h2>
+        <button type="button" class="shell-modal__close" data-close-modal data-i18n-aria="modal_close" aria-label="Kapat">×</button>
+      </header>
+      <p class="shell-muted mono" data-i18n="mt_note">Kronometre: lap kaydı.</p>
+      <p id="timer-display" class="shell-display mono">00:00.00</p>
+      <div class="shell-row">
+        <button type="button" class="shell-btn mono" id="timer-go" data-i18n="mt_go">Başlat / Duraklat</button>
+        <button type="button" class="shell-btn shell-btn--ghost mono" id="timer-lap" data-i18n="mt_lap">Lap</button>
+        <button type="button" class="shell-btn shell-btn--ghost mono" id="timer-reset" data-i18n="mt_reset">Sıfırla</button>
+      </div>
+      <ol id="timer-laps" class="shell-laps mono"></ol>
+    </div>
+
+    <script src="./i18n.js"></script>
+    <script src="./main.js"></script>
+    <script src="./shell-apps.js"></script>
+    <script src="./games-library.js"></script>
+    <script src="./gnuchanos-wm.js"></script>
+  </body>
+</html>

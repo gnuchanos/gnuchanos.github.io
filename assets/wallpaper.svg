@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a0f42"/>
+      <stop offset="55%" stop-color="#140820"/>
+      <stop offset="100%" stop-color="#0a0410"/>
+    </linearGradient>
+    <linearGradient id="mist" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#1a0b28" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#1a0b28" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="moon" cx="78%" cy="18%" r="12%">
+      <stop offset="0%" stop-color="#d4b8ff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1a0b28" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#moon)"/>
+  <!-- distant trees -->
+  <path fill="#1e0d30" d="M0 520 L40 380 L80 520 L120 360 L160 520 L200 400 L240 520 L280 350 L320 520 L360 390 L400 520 L440 370 L480 520 L520 400 L560 520 L600 360 L640 520 L680 380 L720 520 L760 350 L800 520 L840 390 L880 520 L920 370 L960 520 L1000 400 L1040 520 L1080 360 L1120 520 L1160 380 L1200 520 L1240 350 L1280 520 L1320 390 L1360 520 L1400 370 L1440 520 L1480 400 L1520 520 L1560 360 L1600 520 L1600 900 L0 900 Z"/>
+  <path fill="#261245" d="M0 560 L60 420 L110 560 L170 440 L220 560 L280 410 L330 560 L390 430 L440 560 L500 400 L550 560 L610 420 L660 560 L720 390 L770 560 L830 430 L880 560 L940 410 L990 560 L1050 440 L1100 560 L1160 400 L1210 560 L1270 420 L1320 560 L1380 400 L1430 560 L1490 430 L1540 560 L1600 410 L1600 900 L0 900 Z"/>
+  <!-- cabin -->
+  <g transform="translate(620 430)">
+    <rect x="0" y="120" width="360" height="200" fill="#3d1f4a" rx="2"/>
+    <polygon points="180,40 -20,140 380,140" fill="#4a2858"/>
+    <rect x="40" y="200" width="70" height="120" fill="#2a1535"/>
+    <rect x="250" y="180" width="80" height="60" fill="#6b3d7a" opacity="0.5"/>
+    <rect x="140" y="200" width="80" height="60" fill="#6b3d7a" opacity="0.45"/>
+  </g>
+  <!-- near trees -->
+  <path fill="#12061c" d="M0 620 L50 480 L100 620 L150 500 L200 620 L250 470 L300 620 L350 510 L400 620 L450 460 L500 620 L550 500 L600 620 L650 480 L700 620 L750 500 L800 620 L850 470 L900 620 L950 510 L1000 620 L1050 480 L1100 620 L1150 500 L1200 620 L1250 470 L1300 620 L1350 510 L1400 620 L1450 480 L1500 620 L1550 500 L1600 620 L1600 900 L0 900 Z"/>
+  <rect width="1600" height="900" fill="url(#mist)"/>
+</svg>

@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "generatedAt": "2026-05-14T10:46:52.199Z",
+  "panel": {
+    "centerTitle": "| Gnu-Linux My Life |",
+    "workspace": {
+      "active": 1,
+      "count": 4,
+      "labelPrefix": "WorkStation"
+    },
+    "stats": {
+      "temp": 20,
+      "tempMax": 100,
+      "cpuGhz": 1,
+      "cpuMaxGhz": 3.9,
+      "ramMb": 115,
+      "ramTotalMb": 6192,
+      "netUp": 3,
+      "netDown": 4
+    }
+  },
+  "launcher": {
+    "items": [
+      {
+        "id": "pulse",
+        "label": "PulseAudio",
+        "hint": "ALT+P"
+      },
+      {
+        "id": "music",
+        "label": "Music Player",
+        "hint": "ALT+M"
+      },
+      {
+        "id": "wall",
+        "label": "Wallpaper Manager",
+        "hint": "ALT+W"
+      },
+      {
+        "id": "editor",
+        "label": "Text Editor",
+        "hint": "ALT+T"
+      },
+      {
+        "id": "calc",
+        "label": "Calculator",
+        "hint": "ALT+C"
+      },
+      {
+        "id": "alarm",
+        "label": "Alarm",
+        "hint": "ALT+A"
+      },
+      {
+        "id": "timer",
+        "label": "TIMER",
+        "hint": "ALT+SHIFT+T"
+      }
+    ]
+  }
+}
